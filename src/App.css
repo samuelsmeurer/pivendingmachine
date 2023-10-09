@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  .message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 500px;
+  }
+  
+  .success {
+    background-color: #90ee90;
+    color: #006400;
+  }
+  
+  .error {
+    background-color: #ffcccb;
+    color: #8b0000;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  
