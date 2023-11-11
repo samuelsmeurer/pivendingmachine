@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
-import { Web3Button } from '@web3modal/react';
-import { useAccount, useContractRead, useDisconnect } from 'wagmi';
-import { Account } from './components';
-import ContratoABI from './contractAbi.json';
-import { BigNumber } from 'ethers';
-import { writeUserData, readUserData } from './FireBaseConfig';
-import './App.css';
+import { useAccount, useContractRead, useDisconnect } from "wagmi";
+import { Account } from "./components";
+import ContratoABI from "./contractAbi.json";
+import { BigNumber } from "ethers";
+import { writeUserData, readUserData } from "./FireBaseConfig";
+import "./App.css";
 
 export function App() {
   const { address, isConnected } = useAccount();
   const contractRead = useContractRead({
-    address: '0x18145188f281c3e0E8E0f566b2CB692Ac3576892',
+    address: "0x18145188f281c3e0E8E0f566b2CB692Ac3576892",
     abi: ContratoABI,
-    functionName: 'balanceOf',
+    functionName: "balanceOf",
     args: [address],
   });
 
@@ -34,9 +32,9 @@ export function App() {
   };
 
   const handleButtonClick = () => {
-    writeUserData('0x2275e8a5e69be437c45a611ec818a2b650cecbea');
-    readUserData('0x2275e8a5e69be437c45a611ec818a2b650cecbea');
-    console.log('Botão clicado! Realizando alguma ação...');
+    writeUserData("0x2275e8a5e69be437c45a611ec818a2b650cecbea");
+    readUserData("0x2275e8a5e69be437c45a611ec818a2b650cecbea");
+    console.log("Botão clicado! Realizando alguma ação...");
   };
 
   return (
@@ -47,13 +45,13 @@ export function App() {
         <button onClick={handleButtonClick}>Clique para fazer algo</button>
       </div>
       <div className="button-container">
-        <Web3Button />
+        <w3m-button />
       </div>
       {isConnected && <Account />}
 
       {contractRead.data && (
-        <div className={`message ${approved ? 'success' : 'error'}`}>
-          <div>{approved ? 'SUCESSO: Possui item digital' : 'ERROR: Não Possui o item digital'}</div>
+        <div className={`message ${approved ? "success" : "error"}`}>
+          <div>{approved ? "SUCESSO: Possui item digital" : "ERROR: Não Possui o item digital"}</div>
           <div>Quantidade: {qntd}</div>
         </div>
       )}
