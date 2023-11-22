@@ -10,7 +10,7 @@ import './App.css';
 export function App() {
   const { address, isConnected } = useAccount();
   const contractRead = useContractRead({
-    address: '0x18145188f281c3e0E8E0f566b2CB692Ac3576892',
+    address: '0x35a1543D4e4DCb5D2882661F0d439bbA1b97272F',
     abi: ContratoABI,
     functionName: 'balanceOf',
     args: [address],
@@ -33,18 +33,12 @@ export function App() {
     }, 3000);
   };
 
-  const handleButtonClick = () => {
-    writeUserData('0x2275e8a5e69be437c45a611ec818a2b650cecbea');
-    readUserData('0x2275e8a5e69be437c45a611ec818a2b650cecbea');
-    console.log('Botão clicado! Realizando alguma ação...');
-  };
 
   return (
     <>
       <h1 className="title">Pi Projeto Vending Machine</h1>
       <div className="button-container">
-        {/* Adicione um botão e atribua o manipulador de evento onClick */}
-        <button onClick={handleButtonClick}>Clique para fazer algo</button>
+        {}
       </div>
       <div className="button-container">
         <Web3Button />
@@ -53,7 +47,7 @@ export function App() {
 
       {contractRead.data && (
         <div className={`message ${approved ? 'success' : 'error'}`}>
-          <div>{approved ? 'SUCESSO: Possui item digital' : 'ERROR: Não Possui o item digital'}</div>
+          <div>{approved ? 'SUCESSO: Você possui o ticket do refrigerante' : 'ERROR: Não Possui o ticket do refrigerante'}</div>
           <div>Quantidade: {qntd}</div>
         </div>
       )}
